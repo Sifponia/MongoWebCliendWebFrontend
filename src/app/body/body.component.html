@@ -1,0 +1,98 @@
+<!----MODAL---------------------------------->
+<br>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="@getbootstrap">Add Hosting
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div  class="input-group mb-3">
+          <!--  <label for="host" class="col-form-label">HOST</label>
+            <input type="text" class="form-control" name="host" [(ngModel)]="saveConectorr.host" id="host">-->
+
+
+
+
+            <span class="input-group-text" id="basic-addon1">GET</span>
+            <input type="text" class="form-control" placeholder="Host"
+                   aria-label="Username" aria-describedby="basic-addon1"
+                   name="host" [(ngModel)]="saveConectorr.host">
+          </div>
+          <div class="mb-3">
+            <label for="uri" class="col-form-label">Message:</label>
+            <input type="text" class="form-control" name="host" [(ngModel)]="saveConectorr.uri" id="uri">
+
+          </div>
+
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="summit" (click)="saveConector()" data-bs-dismiss="modal" class="btn btn-primary">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!----TABLES---------------->
+
+<br>
+<p>body works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">localhost</th>
+    <th scope="col">port</th>
+    <th scope="col">uri</th>
+    <th scope="col">delete</th>
+    <th scope="col">Domwload</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of conectors">
+    <td>{{c.id}}</td>
+    <td>{{c.host}}</td>
+    <td>{{c.port}}</td>
+    <td>{{c.uri}}</td>
+    <td>
+
+      <button type="button" (click)="deleteConector(c.id)" class="btn btn-danger">
+        <a><i class="fas fa-trash"></i>
+        </a>
+      </button>
+    </td>
+    <td>
+      <button type="button" (click)="buscar(c.id)" class="btn btn-success">
+
+
+        <a>
+          <i class="fas fa-download"></i>
+
+        </a>
+       </button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+<app-footer></app-footer>
+
+<!---
+[routerLink]="['/client/', c.id]"
+-->
